@@ -1,0 +1,35 @@
+/* Navbar styles */
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+/* Nav list styling */
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual nav item */
+.nav-item {
+  margin-right: 20px;
+}
+
+/* Nav links */
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f39c12;
+}
+
+/* Content section styling */
+.content {
+  padding: 20px;
+}
