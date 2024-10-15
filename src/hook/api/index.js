@@ -19,7 +19,8 @@ const useApiRequest = (url, method = "GET") => {
         }
 
         const res = await response.json();
-        setData(res?.results);
+
+        setData(res);
         toast.dismiss("loading");
         toast.success("Data fetched successfully");
       } catch (err) {

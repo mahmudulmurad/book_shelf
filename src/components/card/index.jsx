@@ -1,26 +1,22 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const BookCard = ({ book, wishlist, toggleWishlist }) => {
   const { id, title, subjects, formats } = book;
 
   const imageUrl = formats["image/jpeg"];
-  const isWishlisted = wishlist.includes(id);
+  const isWishlisted = wishlist.find((one) => one?.id === id);
 
   return (
     <div className="book-card">
-      {/* Wishlist toggle button */}
       <span
         className={`wishlist-icon ${isWishlisted ? "liked" : ""}`}
-        onClick={() => toggleWishlist(id)}
+        onClick={() => toggleWishlist(book)}
       >
         {isWishlisted ? "❤️" : "♡"}
       </span>
-
-      {/* Book image */}
       <img src={imageUrl} alt={title} className="book-image" />
-
-      {/* Book information */}
       <div className="book-info">
         <h3>{title}</h3>
         <p>
@@ -29,6 +25,7 @@ const BookCard = ({ book, wishlist, toggleWishlist }) => {
         <p>
           <strong>Genres:</strong> {subjects.join(", ")}
         </p>
+        <Link to={`/${id}`}>Details</Link>
       </div>
     </div>
   );

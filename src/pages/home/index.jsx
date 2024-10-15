@@ -1,9 +1,12 @@
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 import useApiRequest from "../../hook/api";
 import BookCard from "../../components/card";
 import Pagination from "../../components/pagination/pagination";
+import Layout from "../../layout";
+import Loading from "../../components/loading";
 
 export function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -15,15 +18,11 @@ export function Home() {
   const itemsPerPage = 20;
 
   // Use custom hook to fetch books based on the current page
-  const {
-    data: books,
-    loading,
-    error,
-  } = useApiRequest(
+  const { data, loading, error } = useApiRequest(
     `https://gutendex.com/books?page=${page}&items=${itemsPerPage}`,
     "GET"
   );
-
+  const books = data?.results;
   // Search filtering
   const filteredBooks = books?.filter(
     (book) =>
@@ -32,13 +31,20 @@ export function Home() {
   );
 
   // Handle wishlist toggle
-  const handleWishlistToggle = (bookId) => {
+  const handleWishlistToggle = (book) => {
     let updatedWishlist;
-    if (wishlist.includes(bookId)) {
-      updatedWishlist = wishlist.filter((id) => id !== bookId);
+
+    // Find if the book is already in the wishlist by checking the id
+    const isWishlisted = wishlist.find((one) => one?.id === book?.id);
+
+    if (isWishlisted) {
+      // Remove book if it's already in the wishlist
+      updatedWishlist = wishlist.filter((data) => data?.id !== book?.id);
     } else {
-      updatedWishlist = [...wishlist, bookId];
+      // Add book to the wishlist if not present
+      updatedWishlist = [...wishlist, book];
     }
+
     setWishlist(updatedWishlist);
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
   };
@@ -49,21 +55,20 @@ export function Home() {
   };
 
   useEffect(() => {
-    // Reset page to 1 on search or genre change
     setPage(1);
   }, [searchQuery, genre]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <Layout>Error: {error}</Layout>;
   }
 
   return (
-    <div>
-      <h1>Gutenberg Books</h1>
+    <Layout>
+      <h1>Books Gallery</h1>
 
       {/* Search Bar */}
       <input
@@ -101,7 +106,7 @@ export function Home() {
         itemsPerPage={itemsPerPage}
         onPageChange={handlePageChange}
       />
-    </div>
+    </Layout>
   );
 }
 
