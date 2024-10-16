@@ -1,10 +1,21 @@
-/* Pagination Container */
+.pagination-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 .pagination-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin: 20px 0;
+  padding: 10px;
+  width: 70%;
+  background-color: #333;
+  border-radius: 7px;
 }
 
 /* Pagination Buttons */
@@ -25,6 +36,13 @@
 
 .pagination-container button:hover:not(:disabled) {
   background-color: #0056b3;
+}
+
+/* Active Page Button */
+.active-page {
+  font-weight: bold;
+  background-color: #0056b3;
+  color: white;
 }
 
 /* Page Info (text between buttons) */

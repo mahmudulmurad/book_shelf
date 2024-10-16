@@ -4,13 +4,16 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { Toast } from "./components/toast";
 import AppRoutes from "./routes";
+import Layout from "./layout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AppRoutes />
-      <Toast />
+      <Layout>
+        <AppRoutes />
+        <Toast />
+      </Layout>
     </BrowserRouter>
   </React.StrictMode>
 );

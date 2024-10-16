@@ -6,7 +6,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px;
-  width: 250px;
+  width: 180px;
   text-align: center;
   transition: transform 0.2s;
 }
@@ -18,8 +18,8 @@
 /* Wishlist Icon */
 .wishlist-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
   cursor: pointer;
   font-size: 24px;
   color: #ccc;
@@ -28,6 +28,7 @@
 
 .wishlist-icon.liked {
   color: red;
+  width: 30px !important;
 }
 
 .wishlist-icon:hover {

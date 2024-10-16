@@ -1,0 +1,7 @@
+.wishlist-container {
+  margin: 10px;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}

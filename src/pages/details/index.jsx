@@ -22,8 +22,8 @@ export function Details() {
   }
 
   return (
-    <Layout>
+    <div>
       <BookDetails book={book} />
-    </Layout>
+    </div>
   );
 }

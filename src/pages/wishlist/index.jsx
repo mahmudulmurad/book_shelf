@@ -1,18 +1,23 @@
 import React from "react";
-import Layout from "../../layout";
 import BookCard from "../../components/card";
+import "./style.css";
+import useWishlist from "../../hook/useWishlist";
 
 export function Wishlist() {
-  const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-  console.log(wishlist);
-
+  const { wishlist, toggleWishlist } = useWishlist();
   return (
-    <Layout>
+    <div className="wishlist-container">
       <h1>Wishlist's Book Gallery</h1>
-
-      {wishlist?.map((book) => (
-        <BookCard key={book.id} book={book} wishlist={wishlist} />
-      ))}
-    </Layout>
+      <div className="card-container">
+        {wishlist?.map((book) => (
+          <BookCard
+            key={book.id}
+            book={book}
+            wishlist={wishlist}
+            toggleWishlist={toggleWishlist}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
