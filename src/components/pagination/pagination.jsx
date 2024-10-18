@@ -9,14 +9,15 @@ export default function Pagination({
   onPageChange,
   url,
 }) {
-  const totalPages = Math.ceil(count / 32); // Calculate total pages
+  // calculate total pages
+  const totalPages = Math.ceil(count / 32);
 
-  // Helper function to create an array of page numbers with ellipsis of dots
+  //function to create an array of page numbers
   const getPageNumbers = () => {
     const pages = [];
-    const maxPageLinks = 5; // Number of page links to display in the middle
+    const maxPageLinks = 5;
 
-    // Always show first page, last page, and a few pages around the current page
+    // always show first page, last page, and a few pages around the current page
     if (currentPage > maxPageLinks) {
       pages.push(1, "...");
     }
@@ -36,7 +37,7 @@ export default function Pagination({
     return pages;
   };
 
-  // Event handlers for page changes
+  // event handlers for page changes
   const nextPage = () => {
     if (next) {
       onPageChange(next);
@@ -49,7 +50,7 @@ export default function Pagination({
     }
   };
 
-  // Handle specific page number click
+  // handle specific page number click
   const handlePageClick = (pageNumber) => {
     const urlObj = new URL(url);
     urlObj.searchParams.set("page", pageNumber);

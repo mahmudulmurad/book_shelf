@@ -5,7 +5,7 @@ import "./style.css";
 const Layout = ({ children }) => {
   return (
     <div>
-      {/* Navbar */}
+      {/* navbar */}
       <nav className="navbar">
         <ul className="nav-list">
           <li className="nav-item">
@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
         </ul>
       </nav>
 
-      {/* Main content */}
+      {/* main content */}
       <div className="content">{children}</div>
     </div>
   );

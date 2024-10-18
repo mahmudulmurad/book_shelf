@@ -23,6 +23,7 @@ export function Home() {
     setUrl(url);
   };
 
+  //for filter as input value
   const debouncedSearch = useCallback(() => {
     const timeoutId = setTimeout(() => {
       if (searchQuery) {
@@ -38,6 +39,12 @@ export function Home() {
     const cleanup = debouncedSearch();
     return cleanup;
   }, [searchQuery, debouncedSearch]);
+
+  //for changing the dropdown filter
+  useEffect(() => {
+    const pageUrl = `${process.env.REACT_APP_DATA_URL}?topic=${genre}`;
+    setUrl(pageUrl);
+  }, [genre]);
 
   if (loading) {
     return <Loading />;
@@ -59,9 +66,14 @@ export function Home() {
         />
         <select value={genre} onChange={(e) => setGenre(e.target.value)}>
           <option value="">All Genres</option>
-          <option value="Fiction">Fiction</option>
-          <option value="Science">Science</option>
-          <option value="History">History</option>
+          <option value="children">Children</option>
+          <option value="fiction">Fiction</option>
+          <option value="literature">Literature</option>
+          <option value="movie">Movie</option>
+          <option value="civilization">Civilization</option>
+          <option value="drama">Drama</option>
+          <option value="poetry">Poetry</option>
+          <option value="stories">Stories</option>
         </select>
         <ul className="list-style">
           {data?.results?.map((book) => (

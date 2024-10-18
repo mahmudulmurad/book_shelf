@@ -1,63 +1,88 @@
-/* Book Card */
 .book-card {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #fff;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px;
-  width: 180px;
+  padding: 15px;
+  margin: 15px;
+  width: 220px;
+  height: 500px;
   text-align: center;
-  transition: transform 0.2s;
+  font-size: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .book-card:hover {
   transform: scale(1.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Wishlist Icon */
+.wishlist-icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .wishlist-icon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   cursor: pointer;
-  font-size: 24px;
-  color: #ccc;
-  transition: color 0.2s;
+  color: #808080;
+  transition: color 0.2s ease;
 }
 
 .wishlist-icon.liked {
   color: red;
-  width: 30px !important;
 }
 
 .wishlist-icon:hover {
   color: #ff4d4d;
 }
 
-/* Book Image */
 .book-image {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 30%;
+  object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-/* Book Info */
-.book-info h3 {
-  font-size: 1.2rem;
-  margin: 10px 0;
+.title {
+  height: 20%;
+  margin-bottom: 10px;
+  font-weight: bold;
+  overflow: hidden;
 }
 
-.book-info p {
-  font-size: 0.9rem;
-  color: #555;
+.author {
+  height: 10%;
+  margin-bottom: 10px;
+  text-align: left;
+  overflow: hidden;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .book-card {
-    width: 100%;
-    margin: 10px 0;
-  }
+.genre {
+  height: 20%;
+  margin-bottom: 10px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.forward-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid #808080;
+  border-radius: 8px;
+  background-color: #04aa6d;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.forward-btn:hover {
+  background-color: #039f60;
 }

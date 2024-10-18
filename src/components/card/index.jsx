@@ -10,27 +10,29 @@ const BookCard = ({ book, wishlist, toggleWishlist }) => {
 
   return (
     <div className="book-card">
-      <span
-        className={`wishlist-icon ${isWishlisted ? "liked" : ""}`}
+      <div
+        className="wishlist-icon-container"
         onClick={() => toggleWishlist(book)}
       >
-        {isWishlisted ? "❤️" : "♡"}
-      </span>
-      <img src={imageUrl} alt={title} className="book-image" />
-      <div className="book-info">
-        <h3>{title}</h3>
-        <p>
-          <strong>ID:</strong> {id}
-        </p>
-        <p>
-          <strong>Author:</strong> {authors[0]?.name}({authors[0]?.birth_year}-
-          {authors[0]?.death_year})
-        </p>
-        <p>
-          <strong>Genres:</strong> {subjects.join(", ")}
-        </p>
-        <Link to={`/${id}`}>Details</Link>
+        <div>ID:{id}</div>
+        <div className={`wishlist-icon ${isWishlisted ? "liked" : ""}`}>
+          {isWishlisted ? "❤️" : "♡"}
+        </div>
       </div>
+      <img src={imageUrl} alt={title} className="book-image" />
+
+      <h4 className="title">{title}</h4>
+
+      <div className="author">
+        <strong>Author:</strong> {authors[0]?.name}({authors[0]?.birth_year}-
+        {authors[0]?.death_year})
+      </div>
+      <div className="genre">
+        <strong>Genres:</strong> {subjects.join(", ")}
+      </div>
+      <Link className="forward-btn" to={`/${id}`}>
+        Details
+      </Link>
     </div>
   );
 };

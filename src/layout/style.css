@@ -1,4 +1,4 @@
-/* Navbar styles */
+/* navbar styles */
 .navbar {
   position: fixed;
   top: 0;
@@ -8,7 +8,7 @@
   z-index: 999;
 }
 
-/* Nav list styling */
+/* nav list styling */
 .nav-list {
   list-style: none;
   display: flex;
@@ -16,12 +16,12 @@
   padding: 0;
 }
 
-/* Individual nav item */
+/* individual nav item */
 .nav-item {
   margin-right: 20px;
 }
 
-/* Nav links */
+/* nav links */
 .nav-link {
   color: #fff;
   text-decoration: none;
@@ -33,7 +33,7 @@
   color: #f39c12;
 }
 
-/* Content section styling */
+/* content section styling */
 .content {
   padding-top: 45px;
 }
