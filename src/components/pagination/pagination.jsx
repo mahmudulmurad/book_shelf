@@ -59,29 +59,25 @@ export default function Pagination({
   };
 
   return (
-    <div className="pagination-main">
-      <div className="pagination-container">
-        <button onClick={prevPage} disabled={!previous}>
-          Previous
-        </button>
+    <div className="pagination-container">
+      <button onClick={prevPage} disabled={!previous}>
+        {"<"}
+      </button>
 
-        <div className="page-info">
-          {getPageNumbers().map((page, index) => (
-            <button
-              key={index}
-              onClick={() => typeof page === "number" && handlePageClick(page)}
-              disabled={currentPage === page || page === "..."}
-              className={currentPage === page ? "active-page" : ""}
-            >
-              {page}
-            </button>
-          ))}
-        </div>
-
-        <button onClick={nextPage} disabled={!next}>
-          Next
+      {getPageNumbers().map((page, index) => (
+        <button
+          key={index}
+          onClick={() => typeof page === "number" && handlePageClick(page)}
+          disabled={currentPage === page || page === "..."}
+          className={currentPage === page ? "active-page" : ""}
+        >
+          {page}
         </button>
-      </div>
+      ))}
+
+      <button onClick={nextPage} disabled={!next}>
+        {">"}
+      </button>
     </div>
   );
 }
