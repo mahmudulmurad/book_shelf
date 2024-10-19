@@ -1,6 +1,4 @@
-/* eslint-disable array-callback-return */
 import React, { useCallback, useEffect, useState } from "react";
-import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 import useApiRequest from "../../hook/api";
 import BookCard from "../../components/card";
@@ -57,7 +55,7 @@ export function Home() {
   return (
     <>
       <div className="home-container">
-        <h1>Books Gallery</h1>
+        <h1>Book Gallery</h1>
         <div className="filter-section">
           <input
             className="text-search"

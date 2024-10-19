@@ -7,7 +7,7 @@ export function Wishlist() {
   const { wishlist, toggleWishlist } = useWishlist();
   return (
     <div className="wishlist-container">
-      <h1>Wishlist's Book Gallery</h1>
+      <h1>Wishlist Book Gallery</h1>
       <div className="card-container">
         {wishlist?.map((book) => (
           <BookCard

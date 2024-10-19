@@ -13,8 +13,9 @@ const BookDetails = ({ book }) => {
   } = book;
 
   const authorNames = authors
-    .map(
-      (author) => `${author.name} (${author.birth_year} - ${author.death_year})`
+    ?.map(
+      (author) =>
+        `${author?.name} (${author?.birth_year} - ${author?.death_year})`
     )
     .join(", ");
 
@@ -26,15 +27,15 @@ const BookDetails = ({ book }) => {
         <strong>Author:</strong> {authorNames}
       </p>
       <p>
-        <strong>Subjects:</strong> {subjects.join(", ")}
+        <strong>Subjects:</strong> {subjects?.join(", ")}
       </p>
       {bookshelves?.length > 0 && (
         <p>
-          <strong>Bookshelves:</strong> {bookshelves.join(", ")}
+          <strong>Bookshelves:</strong> {bookshelves?.join(", ")}
         </p>
       )}
       <p>
-        <strong>Language:</strong> {languages.join(", ")}
+        <strong>Language:</strong> {languages?.join(", ")}
       </p>
       <p>
         <strong>Download Count:</strong> {download_count}
