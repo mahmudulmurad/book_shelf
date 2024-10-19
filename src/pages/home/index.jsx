@@ -58,23 +58,31 @@ export function Home() {
     <>
       <div className="home-container">
         <h1>Books Gallery</h1>
-        <input
-          type="text"
-          placeholder="Search by title..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <select value={genre} onChange={(e) => setGenre(e.target.value)}>
-          <option value="">All Genres</option>
-          <option value="children">Children</option>
-          <option value="fiction">Fiction</option>
-          <option value="literature">Literature</option>
-          <option value="movie">Movie</option>
-          <option value="civilization">Civilization</option>
-          <option value="drama">Drama</option>
-          <option value="poetry">Poetry</option>
-          <option value="stories">Stories</option>
-        </select>
+        <div className="filter-section">
+          <input
+            className="text-search"
+            type="text"
+            placeholder="Search by title..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <select
+            value={genre}
+            onChange={(e) => setGenre(e.target.value)}
+            className="select-search"
+          >
+            <option value="">All Genres</option>
+            <option value="children">Children</option>
+            <option value="fiction">Fiction</option>
+            <option value="literature">Literature</option>
+            <option value="movie">Movie</option>
+            <option value="civilization">Civilization</option>
+            <option value="drama">Drama</option>
+            <option value="poetry">Poetry</option>
+            <option value="stories">Stories</option>
+          </select>
+        </div>
+
         <ul className="list-style">
           {data?.results?.map((book) => (
             <BookCard

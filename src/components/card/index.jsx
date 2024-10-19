@@ -10,12 +10,12 @@ const BookCard = ({ book, wishlist, toggleWishlist }) => {
 
   return (
     <div className="book-card">
-      <div
-        className="wishlist-icon-container"
-        onClick={() => toggleWishlist(book)}
-      >
+      <div className="wishlist-icon-container">
         <div>ID:{id}</div>
-        <div className={`wishlist-icon ${isWishlisted ? "liked" : ""}`}>
+        <div
+          className={`wishlist-icon ${isWishlisted ? "liked" : ""}`}
+          onClick={() => toggleWishlist(book)}
+        >
           {isWishlisted ? "❤️" : "♡"}
         </div>
       </div>
